@@ -39,6 +39,37 @@
 
 \begin{document}
 \typeout{Poster rendering started}	
+\tikzset{ 
+	table/.style={
+		matrix of nodes,
+		row sep=-\pgflinewidth,
+		column sep=-\pgflinewidth,
+		nodes={
+			rectangle,
+			draw=black,
+			align=center
+		},
+		minimum height=1.5em,
+		text depth=0.5ex,
+		text height=2ex,
+		nodes in empty cells,
+		%%
+		every even row/.style={
+			nodes={fill=gray!20}
+		},
+		column 1/.style={
+			nodes={text width=2em,font=\bfseries}
+		},
+		row 1/.style={
+			nodes={
+				fill=black,
+				text=white,
+				font=\bfseries
+			}
+		}
+	}
+}
+
 
 \SetBgContents{}
 %%% Setting Background Image %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -255,6 +286,11 @@ The Active Segmentation  is a ImageJ plugin inspired by trainable Weka Segmentat
     	\newline
     	\includegraphics[width=6cm, height=5cm]{FeatureScreen}
     	\newline		
+    	\color{Carnelian}\hspace{0.6cm}\textbf{FILTER SCREEN}
+    	\newline
+    	\newline
+    	\includegraphics[width=6cm, height=5cm]{FilterScreen}
+    	\newline		
     \end{minipage}
      \begin{minipage}{.10\textwidth}
      	\includegraphics[width=2cm, height=2cm]{arrow1}
@@ -263,7 +299,8 @@ The Active Segmentation  is a ImageJ plugin inspired by trainable Weka Segmentat
     	\color{Carnelian}\hspace{0.6cm}\textbf{SEGMENTED ASTROCYTES}
     	\newline
     	\newline
-    	\includegraphics[width=5cm, height=5cm]{astrocyteresult}		
+    	\includegraphics[width=5cm, height=5cm]{astrocyteresult}	
+	
     \end{minipage}
 
 	
@@ -277,9 +314,9 @@ The Active Segmentation  is a ImageJ plugin inspired by trainable Weka Segmentat
   	\end{itemize} 
   \color{Carnelian}	Future efforts will include implementing the Structural SVM or Relational Learning for finding the suitable patterns in astrocytic arbors.
   }
-	\hspace{2cm}
+	\hspace{5cm}
  \centerline{ 
- 	\begin{minipage}{30em}
+ 	\begin{minipage}{20em}
  		\includegraphics[height=3.5em]{google1}   		
  		\vspace{0.5cm}		
  	\end{minipage}
