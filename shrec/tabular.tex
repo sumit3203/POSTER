@@ -1,0 +1,349 @@
+\documentclass[portrait,final,a0paper]{baposter}
+%\documentclass[a4shrink,portrait,final]{baposter}
+% Usa a4shrink for an a4 sized paper.
+
+\tracingstats=2
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{bm}
+
+\usepackage{graphicx}
+
+
+\usepackage{pgfbaselayers}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\usepackage{times}
+\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+\usepackage{background}
+
+\newcommand{\captionfont}{\footnotesize}
+
+\selectcolormodel{cmyk}
+
+\usepackage[table]{xcolor}
+
+\setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{2.5}
+
+\graphicspath{{images/}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\typeout{Poster rendering started}	
+
+\SetBgContents{}
+%%% Setting Background Image %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\background{
+	\begin{tikzpicture}[remember picture,overlay]%
+	\draw (current page.center)+(-1em,1em) node[anchor=center,opacity=0.2, scale=1.1]
+	{\includegraphics[width=1.1\textwidth]{background1}};
+	\end{tikzpicture}
+}	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+\definecolor{DarkMagenta}{cmyk}{0,0.64,0.2,0}
+\definecolor{yellow}{cmyk}{0.3,0.1,0.2,0.0}
+\definecolor{reddishyellow}{cmyk}{0,0.22,1.0,0.0}
+\definecolor{black}{cmyk}{0,0,0.0,1.0}
+\definecolor{darkYellow}{cmyk}{0,0,1.0,0.5}
+\definecolor{Carnelian}{cmyk}{1.0,0.29,0.0,0.26}
+
+\definecolor{lightyellow}{cmyk}{0.0,0.0,0.0,0.0}
+\definecolor{lighteryellow}{cmyk}{0,0,0.0,0.0}
+\definecolor{lighteryellow}{cmyk}{0,0,0.0,0.0}
+\definecolor{lightestyellow}{cmyk}{0,0,0.0,0.0}
+
+\definecolor{primary1}{cmyk}{0.5,1.0,0.0,0.0}
+\definecolor{primary2}{cmyk}{0,0,0,0.5}
+\definecolor{primary3}{cmyk}{0,0,0,0.8}
+
+\definecolor{secondary1}{cmyk}{0.82,0.38,0.2,0.2}
+\definecolor{secondary2}{cmyk}{0.91,0.91,0.6,0.18}
+\definecolor{secondary3}{cmyk}{0.71,0.23,0.13,0.3}
+\definecolor{secondary4}{cmyk}{0.38,0.16,0.0,0.0}
+\definecolor{secondary5}{cmyk}{0.20,0.62,0.2,0.0}
+\definecolor{secondary6}{cmyk}{0.63,0.2,0.26,0.0}
+
+%%
+%\typeout{Poster Starts}
+
+\newlength{\leftimgwidth}
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=false,
+  % Column spacing
+  colspacing=1em,
+  % Color style
+  bgColorOne=lightestyellow,
+  bgColorTwo=lightestyellow,
+  borderColor=primary2,
+  headerColorOne=primary1,
+  headerColorTwo=reddishyellow,
+  headerFontColor=white,
+  boxColorOne=lightyellow,
+  boxColorTwo=lighteryellow,
+  % Format of textbox
+  textborder=roundedleft,
+%  textborder=rectangle,
+  % Format of text header
+  eyecatcher=false,
+  headerborder=open,
+  headerheight=0.095\textheight,
+  headershape=roundedright,
+  headershade=plain,
+  headerfont=\Large\sf\bf, %Sans Serif
+ % boxshade=plain,
+%  background=shade-tb,
+  background=user,
+  linewidth=1.6pt
+  }
+  % Eye Catcher
+  {\includegraphics[width=10em]{background1.png}} % No eye catcher for this poster. (eyecatcher=no above). If an eye catcher is present, the title is centered between eye-catcher and logo.
+  % Title
+  {
+  \vspace{2.2em}
+  \color{primary1}
+  \textbf{
+  Classification of Cells Based on Scale-space Measures and Semi-supervised Machine Learning}
+  }
+  % Authors
+  {
+  % Serif
+  \vspace{0.5em}\textbf{\ S. Vohra\textsuperscript{2}, L. Antanas\textsuperscript{2}, L. Raedt\textsuperscript{2} and D. Prodanov\textsuperscript{1}}\\
+   \textsuperscript{1}EHS, Imec, Leuven, Belgium, \textsuperscript{2} KU Leuven\\
+   \vspace{1.94em}
+    
+  }
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.  
+  	 \makebox[11em][r]{%
+  	 	\begin{minipage}{16em}
+  	 		\hfill
+  	 		\includegraphics[height=7.8em]{imec_logo}
+  	 	\end{minipage}
+  	 }
+  }
+   
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Now define the boxes that make up the poster
+%%%---------------------------------------------------------------------------
+%%% Each box has a name and can be placed absolutely or relatively.
+%%% The only inconvenience is that you can only specify a relative position 
+%%% towards an already declared box. So if you have a box attached to the 
+%%% bottom, one to the top and a third one which should be in between, you 
+%%% have to specify the top and bottom boxes before you specify the middle 
+%%% box.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Motivation}{name=contribution,column=2,row=0, span=1}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+	\item Expert segment Anatomic \& Time Lapsed Images manually.
+	\item Tools are very domain specific. 
+	\item Most of the tools are based on original intensity which vary alot among images. 
+\end{itemize}
+	\includegraphics[width=7.2cm, height=2.8cm]{tool}	
+	\color{secondary1}\textbf{Example of ZeroCrosser for Segmentation }	
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headerbox{Problem Outline}{name=funding,column=0,span=2,row=0}{
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\begin{minipage}{.30\textwidth}
+			 \textbf{ SUPERVISED LEARNING} 
+				\begin{itemize}
+				\color{Carnelian} 	\item MultiClass Problem		
+				\end{itemize}
+			  \textbf{INSTANCE}
+				\begin{itemize}
+			   \color{Carnelian} 	\item Pixel Characterized By Feature Vector							
+				\end{itemize}
+					
+		\end{minipage} 
+		\begin{minipage}{.70\textwidth}
+			\includegraphics[width=10.5cm, height=3.5cm ]{MONTAGE31}
+		\end{minipage}
+	\newline 
+	\newline 	
+	\textbf{OBJECTIVE} 	\color{primary1}\hspace{2.7cm}\textbf{ANATOMIC IMAGE }	 \hspace{1.2cm}\textbf{TIME LAPSED IMAGES}	
+	\color{black}
+	\begin{itemize}
+		\item Build an interactive framework that adapts every learning task without initial knowledge like  \color{primary1} removing debris around cell,  \color{secondary1} segment cytoplasm \color{black}etc.
+		
+     	\item Segment images in an objective manner.
+	\end{itemize}
+
+	
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Features Extraction }{name=feature,column=0,below=contribution,span=3}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\color{primary1} \hspace{2.5cm}\textbf{REGION OF INTEREST}\hspace{6.0cm} \textbf{CONVOLUTION}\hspace{2.5cm}\textbf{MULTISCALE METHOD}
+	\newline
+\begin{minipage}{.50\textwidth}
+\includegraphics[width=11.0cm, height=1.2cm]{kernels2}
+\includegraphics[width=12.0cm, height=1.5cm]{kernels}
+\newline
+\color{Carnelian}\hspace{1.0cm}\textbf{Gaussian}\hspace{1.0cm}\textbf{Laplace of}\hspace{1.2cm}\textbf{BiLaplace of}\hspace{1.0cm}\textbf{Gaussian X}
+\newline
+\color{Carnelian}\hspace{1.5cm}  \hspace{1.6cm} \textbf{Gaussian}\hspace{1.4cm}\textbf{Gaussian}\hspace{1.4cm}\textbf {Derivative}
+\newline
+ \color{primary1}\hspace{0.5cm}\textbf{INTENSITY OF EACH PIXEL}
+ \newline
+ \includegraphics[width=12.0cm, height=1.1cm]{numbers}
+ \newline
+\color{primary1}\hspace{0.3cm}\textbf{Instance OR Feature Vector}\hspace{0.9cm} \textbf{Concatenation With Other Scales}
+ \newline
+ \newline
+ \includegraphics[width=12.0cm, height=1.1cm]{instance}
+\end{minipage}
+\begin{minipage}{.20\textwidth}
+	\textbf{AT DIFFERENT SCALES}
+    \newline
+    \newline
+	\includegraphics[width=1.0\textwidth]{filteredImage}
+	\newline
+	\newline
+	\color{black} \hspace{0.3cm}\textbf{FILTERED IMAGES }
+\end{minipage}
+ \begin{minipage}{.30\textwidth}
+ 		\includegraphics[width=7.0cm, height=5.1cm]{LOGMONTAGE1}
+ 		\newline
+ 		\color{secondary2} 
+ 		\textbf{A}: Astrocytes stained for GFAP. 
+ 		\newline
+ 		\textbf{B-F}: Laplace of Gaussian, i.e. Mexican hat
+ 		\newline
+ 		\textbf{SCALE}: 2,4,8,16,32.
+ \end{minipage} 
+
+
+  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Method}{name=baseline,column=0,span=3,below=feature}{
+       \textbf{ THRESHOLDING} \hspace{11.5cm}  \textbf{ACTIVE LEARNING} 
+       \newline
+\begin{minipage}{.35\textwidth}	 
+	 \textbf{ }
+	 \newline
+	 Objects can be seprated from each other by selecting the Threshold value
+	 \newline 
+	 \color{primary1}\hspace{1.2cm}\textbf{LOCAL}\hspace{3.3cm}\textbf{GLOBAL} 
+\color{Carnelian} \hspace{0.1cm}\text{Different threshold value} \text{One threshold value}
+\hspace{0.1cm}\color{Carnelian}for each Scale \& Filter \hspace{0.2cm} for each Scale	
+	\includegraphics[width=.95\textwidth]{threshold14T}
+\end{minipage}
+\begin{minipage}{.25\textwidth}
+\includegraphics[width=6.0cm, height=5.1cm]{voting1}	
+\end{minipage} 
+\begin{minipage}{.40\textwidth}
+	 Interactively collect new training examples by querying human user
+	 	\newline
+	\includegraphics[width=.98\textwidth]{activelearning1}	
+\end{minipage} 
+						
+}
+
+\headerbox{Evaluation}{name=evaluation,column=0,span=3,below=baseline}{
+	\color{Carnelian} \textbf{EXTERNAL VALIDATION(PREDICTION ON UNSEEN IMAGES)}\hspace{4.5cm} \textbf{ROC \& PR CURVES SVM APPROACH}
+	       \newline
+	       {\rowcolors{3}{green!80!yellow!50}{green!70!yellow!40}
+	       	\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|  }
+	       		\hline
+	       		\multicolumn{3}{|c|}{Country List} \\
+	       		\hline
+	       		Country Name     or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 \\
+	       		\hline
+	       		Afghanistan & AF &AFG \\
+	       		Aland Islands & AX   & ALA \\
+	       		Albania &AL & ALB \\
+	       		Algeria    &DZ & DZA \\
+	       		American Samoa & AS & ASM \\
+	       		Andorra & AD & AND   \\
+	       		Angola & AO & AGO \\
+	       		\hline
+	       	\end{tabular}
+	       }
+			\begin{minipage}{.12\textwidth}	
+				\textbf{} 
+				\newline \newline  
+				\color{primary1}	\textbf{ANATOMIC }
+				\newline
+				\textbf{IMAGE} 
+				\color{black}
+				\newline	
+				\textbf{Background}
+				\newline 	
+				\textbf{Cell} 
+				\newline 
+				\textbf{Debri} 	
+				\newline 
+				\textbf{Weighted Avg} 
+				\newline 
+				\color{primary1}\textbf{TIME LAPSED}
+				\newline
+				\textbf{IMAGES}
+				\color{black}
+				\newline 
+				\textbf{Background} 
+				\newline 
+				\textbf{Astrocytes	}
+				\newline  
+				\textbf{Weighted Avg} 	
+			\end{minipage}
+		\begin{minipage}{.46\textwidth}
+			\includegraphics[width=10.0cm, height=5.1cm]{results125T}
+		\end{minipage} 		
+		\begin{minipage}{.46\textwidth}
+			\includegraphics[width=9.2cm, height=5.1cm ]{results134}
+		\end{minipage}
+		
+	
+}
+	\hspace{6 cm}
+ \centerline{ 
+ 	\begin{minipage}{20em}
+ 		\includegraphics[height=1.8em]{logo_kul}   		
+ 		\vspace{0.15cm}		
+ 	\end{minipage}
+ 		\begin{minipage}{20em}
+ 			\includegraphics[height=2.4em]{imec_logo}   		
+ 			\vspace{0.15cm}		
+ 		\end{minipage}
+ }
+
+  
+\end{poster}
+
+\end{document}

@@ -1,0 +1,262 @@
+\documentclass[portrait,final,a0paper]{baposter}
+%\documentclass[a4shrink,portrait,final]{baposter}
+% Usa a4shrink for an a4 sized paper.
+
+\tracingstats=2
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{bm}
+
+\usepackage{graphicx}
+
+
+\usepackage{pgfbaselayers}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\usepackage{times}
+\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+\usepackage{background}
+
+\newcommand{\captionfont}{\footnotesize}
+
+\selectcolormodel{cmyk}
+
+\graphicspath{{images/}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\typeout{Poster rendering started}	
+
+\SetBgContents{}
+%%% Setting Background Image %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\background{
+	\begin{tikzpicture}[remember picture,overlay]%
+	\draw (current page.center)+(-1em,1em) node[anchor=center,opacity=0.2, scale=1.1]
+	{\includegraphics[width=1.1\textwidth]{background1}};
+	\end{tikzpicture}
+}	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+\definecolor{DarkMagenta}{cmyk}{0,0.64,0.2,0}
+\definecolor{yellow}{cmyk}{0.3,0.1,0.2,0.0}
+\definecolor{reddishyellow}{cmyk}{0,0.22,1.0,0.0}
+\definecolor{black}{cmyk}{0,0,0.0,1.0}
+\definecolor{darkYellow}{cmyk}{0,0,1.0,0.5}
+\definecolor{Carnelian}{cmyk}{1.0,0.29,0.0,0.26}
+
+\definecolor{lightyellow}{cmyk}{0.0,0.0,0.0,0.0}
+\definecolor{lighteryellow}{cmyk}{0,0,0.0,0.0}
+\definecolor{lighteryellow}{cmyk}{0,0,0.0,0.0}
+\definecolor{lightestyellow}{cmyk}{0,0,0.0,0.0}
+
+\definecolor{primary1}{cmyk}{0.5,1.0,0.0,0.0}
+\definecolor{primary2}{cmyk}{0,0,0,0.5}
+\definecolor{primary3}{cmyk}{0,0,0,0.8}
+
+\definecolor{secondary1}{cmyk}{0.82,0.38,0.2,0.2}
+\definecolor{secondary2}{cmyk}{0.91,0.91,0.6,0.18}
+\definecolor{secondary3}{cmyk}{0.71,0.23,0.13,0.3}
+\definecolor{secondary4}{cmyk}{0.38,0.16,0.0,0.0}
+\definecolor{secondary5}{cmyk}{0.20,0.62,0.2,0.0}
+\definecolor{secondary6}{cmyk}{0.63,0.2,0.26,0.0}
+
+%%
+%\typeout{Poster Starts}
+
+\newlength{\leftimgwidth}
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=false,
+  % Column spacing
+  colspacing=1em,
+  % Color style
+  bgColorOne=lightestyellow,
+  bgColorTwo=lightestyellow,
+  borderColor=primary2,
+  headerColorOne=primary1,
+  headerColorTwo=reddishyellow,
+  headerFontColor=white,
+  boxColorOne=lightyellow,
+  boxColorTwo=lighteryellow,
+  % Format of textbox
+  textborder=roundedleft,
+%  textborder=rectangle,
+  % Format of text header
+  eyecatcher=false,
+  headerborder=open,
+  headerheight=0.095\textheight,
+  headershape=roundedright,
+  headershade=plain,
+  headerfont=\Large\sf\bf, %Sans Serif
+ % boxshade=plain,
+%  background=shade-tb,
+  background=user,
+  linewidth=1.6pt
+  }
+  % Eye Catcher
+  {\includegraphics[width=10em]{background1.png}} % No eye catcher for this poster. (eyecatcher=no above). If an eye catcher is present, the title is centered between eye-catcher and logo.
+  % Title
+  {
+  \vspace{2.2em}
+  \color{primary1}
+  \textbf{
+  Classification of Cells Based on Scale-space Measures and Semi-supervised Machine Learning}
+  }
+  % Authors
+  {
+  % Serif
+  \vspace{0.5em}\textbf{\ S. Vohra\textsuperscript{2}, L. Antanas\textsuperscript{2}, L. Raedt\textsuperscript{2} and D. Prodanov\textsuperscript{1}}\\
+   \textsuperscript{1}EHS, Imec, Leuven, Belgium, \textsuperscript{2} KU Leuven\\
+   \vspace{1.94em}
+    
+  }
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.  
+  	 \makebox[11em][r]{%
+  	 	\begin{minipage}{16em}
+  	 		\hfill
+  	 		\includegraphics[height=7.8em]{imec_logo}
+  	 	\end{minipage}
+  	 }
+  }
+   
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Now define the boxes that make up the poster
+%%%---------------------------------------------------------------------------
+%%% Each box has a name and can be placed absolutely or relatively.
+%%% The only inconvenience is that you can only specify a relative position 
+%%% towards an already declared box. So if you have a box attached to the 
+%%% bottom, one to the top and a third one which should be in between, you 
+%%% have to specify the top and bottom boxes before you specify the middle 
+%%% box.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Introduction}{name=contribution,column=0,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Semi-supervised active learning-based approaches appear to be very promising in a variety of applications from  document classification to biological cell segmentation. 
+Multi-scale approaches in image analysis can be used in variety of segmentation applications, for example scale spaces and wavelets. In this poster we present an approach combining scale space feature extraction and machine learning for the application of semi-automated classification of histological microscopic images. The approach can be further used towards automatic characterization of different cell phenotypes. 
+%can be obtained by combining automated microscopic acquisition with extensive morphological feature extraction and data mining strategies. 
+%We combined both the approaches to classify brain cells in a robust manner involving little human attention.
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Features Extraction }{name=resultsneutralization,column=1,row=0,span=2}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ \begin{minipage}{.43\textwidth}
+ 	
+ 	\includegraphics[width=.97\textwidth]{feature}
+ 	 \color{secondary1} 
+ 	 \textbf{A}: Astrocytes stained for GFAP. 
+ 	 \textbf{B} - horizontal component of the gradient; \textbf{C} - vertical component of the gradient. 
+ 	 Anisotropic decomposition of the LoG, i.e. Mexican hat (\textbf{C}) ; orthogonal (\textbf{D}) and  tangential component (\textbf{E}).
+ 	 %Filter response of Astrocytes. Top: ALoG filter tangential and orthogonal response. 
+ 	 %Bottom: LoG filter response, Gaussian Y Derivative, Gaussian X Derivative  Scales: \textit{s}=8 pixels.
+ 	
+ \end{minipage}
+  \begin{minipage}{.77\textwidth}
+  	\hspace{0.3em}
+  	\includegraphics[width=.7\textwidth]{Montage2}
+  	\vspace{0.4cm}
+  \end{minipage}
+   
+
+  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Summary and Outlook}{name=robustness,column=1,row=0,span=2,below=resultsneutralization}{
+{\color{secondary2}
+\begin{itemize}
+	\item We are able to segment 3 different regions representing cells of interest (astrocytes), tissue and tissue defects  with more than 80 \% success on holdout dataset. 
+	% correctly classified instances on holdout dataset.
+	\item Results demonstrate that our method is capable of coping with the noise variability and is able to segment accurately astrocytic arbors. 
+ 	\item Selected filters represent features of interest.  
+	\item The approach needs only few images to learn the physical object model
+	%It seems to require less samples to learn as compared to naive techniques where large dataset of images are required for learning. 		
+\end{itemize}}
+\color{secondary1}
+ Future efforts will include implementing the Gibbs sampling and Mixture of Gaussians  for finding the suitable patterns  in astrocytic arbors. 
+}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Problem Outline}{name=funding,column=0,span=1,below=contribution}{
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\textbf{Given: } {\color{secondary1} A set of Images}
+	\newline
+	\textbf{Find: } \color{secondary1} Segmentation \& Classification of Astrocytes 
+	
+	\begin{minipage}{.95\textwidth}
+		
+		\includegraphics[width=.9\textwidth]{problem}
+	\end{minipage}
+ %	Followed approach is a combination of  three domains: domain knowledge (Neuroscience), feature extraction (Signal processing) and classification (Machine learning)
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Semi-supervised Machine Learning}{name=results,column=0,span=3,below=funding}{
+
+	\begin{minipage}{.3\textwidth}
+		\includegraphics[width=.86\textwidth]{original2}
+		\includegraphics[width=.9\textwidth]{images1_1}
+		\includegraphics[width=.9\textwidth]{result2}
+	\end{minipage}
+	\begin{minipage}{.3\textwidth}
+			\includegraphics[width=1.1\textwidth]{picture4_1}
+			\includegraphics[width=.9\textwidth]{RGB}
+		\end{minipage}
+	\begin{minipage}{.4\textwidth}
+		\includegraphics[width=1.0\textwidth]{classifier}
+		\includegraphics[width=1.0\textwidth]{picture1}
+	\color{primary1}
+%	The key component of the algorithm is Query Strategy, and we need a way to measure the uncertainty of candidate queries in the pool.	to this end
+    We computed Shannon's entropy H of different feature distributions to measure the uncertainty of candidate queries in the pool. 
+	We are selecting 5-10 samples in each iteration and labeling is done by the "human oracle".
+	\begin{equation*}
+		\label{eq:scale}
+		{H(X)} = -\sum_{i=1}^n{P_{\theta}(y|x)log P_{\theta}(y|x)}	
+	\end{equation*}	
+	\end{minipage} 
+	
+}
+	\hspace{5 cm}
+ \centerline{ 
+ 	\begin{minipage}{20em}
+ 		\includegraphics[height=1.8em]{logo_kul}   		
+ 		\vspace{0.15cm}		
+ 	\end{minipage}
+ 		\begin{minipage}{20em}
+ 			\includegraphics[height=2.4em]{imec_logo}   		
+ 			\vspace{0.15cm}		
+ 		\end{minipage}
+ }
+
+  
+\end{poster}
+
+\end{document}
