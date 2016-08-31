@@ -1,0 +1,48 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz-3dplot}
+\begin{document}
+
+\tdplotsetmaincoords{60}{120}
+
+\newcommand{\Prho}{.8}%
+\newcommand{\Ptheta}{55}%
+\newcommand{\Pphi}{60}%
+
+\begin{tikzpicture}
+    [scale=3,
+    tdplot_main_coords,
+    axis/.style={->,blue,thick},
+    vector/.style={-stealth,red,very thick},
+    vector guide/.style={dashed,red,thick}]
+
+%standard tikz coordinate definition using x, y, z coords
+\coordinate (O) at (0,0,0);
+
+%tikz-3dplot coordinate definition using r, theta, phi coords
+\tdplotsetcoord{P}{\Prho}{\Ptheta}{\Pphi}
+
+%draw axes
+\draw[axis] (0,0,0) -- (1,0,0) node[anchor=north east]{LOG};
+\draw[axis] (0,0,0) -- (0,1,0) node[anchor=north west]{GRADX};
+\draw[axis] (0,0,0) -- (0,0,1) node[anchor=south]{GRADY};
+
+%draw a vector from O to P
+\draw[vector] (O) -- (P);
+
+%draw guide lines to components
+\draw[vector guide] (O) -- (Pxy);
+\draw[vector guide] (Pxy) -- (P);
+
+% Compute x,y,z
+%\pgfmathsetmacro{\PxCoord}{\Prho * sin(\Pphi) * cos(\Ptheta)}%
+%\pgfmathsetmacro{\PyCoord}{\Prho * sin(\Pphi) * sin(\Ptheta)}%
+%\pgfmathsetmacro{\PzCoord}{\Prho * cos(\Pphi)}%
+
+\draw[vector guide, black] (Pxy) -- (Px) node [left]  { A};
+\draw[vector guide, black] (Pxy) -- (Py) node [above right] {B};
+
+\draw[vector guide, magenta] (P) -- (Pxz) node [left]  {C};
+\draw[vector guide, magenta] (P) -- (Pyz) node [right] {D};
+
+\end{tikzpicture}
+\end{document}

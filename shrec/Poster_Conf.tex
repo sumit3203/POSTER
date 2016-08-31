@@ -267,49 +267,66 @@
 
 
 \headerbox{Results}{name=evaluation,column=0,span=3,below=feature}{
-The Active Segmentation  is a ImageJ plugin inspired by trainable Weka Segmentation.
-	\newline
-	\newline
   \begin{minipage}{.20\textwidth}
+  	\color{Carnelian}\hspace{0.1cm}\textbf{ACTIVE SEGMENTATION}
+  		\begin{itemize}
+  			\item ImageJ plugin.
+  			\item Inspired by trainable Weka Segmentation.	
+  		\end{itemize}	
   	\color{Carnelian}\hspace{1.5cm}\textbf{ASTROCYTES}
   	\newline
   	\newline
-  	\includegraphics[width=4.5cm,height=5cm]{astrocyte}	
+  	\includegraphics[width=4.5cm,height=4cm]{astrocyte}	
   	\newline
+  	\color{Carnelian}\hspace{0.6cm}\textbf{FILTER SCREEN}
+  	\newline
+  	\newline
+  	\includegraphics[width=5cm, height=4cm]{FilterScreen}
+  	\newline	
   \end{minipage}
   	\begin{minipage}{.10\textwidth}
   		\includegraphics[width=2cm, height=2cm]{arrow1}
   	\end{minipage}
     \begin{minipage}{.28\textwidth}
+    	\color{Carnelian}\hspace{0.6cm}\textbf{CONFIGURE SCREEN}
+    	\newline
+    	\newline
+    	\includegraphics[width=6cm, height=5cm]{ClassScreen}
+    	\newline
+    	\newline
     	\color{Carnelian}\hspace{0.6cm}\textbf{TRAINING SCREEN}
     	\newline
     	\newline
     	\includegraphics[width=6cm, height=5cm]{FeatureScreen}
-    	\newline		
-    	\color{Carnelian}\hspace{0.6cm}\textbf{FILTER SCREEN}
-    	\newline
-    	\newline
-    	\includegraphics[width=6cm, height=5cm]{FilterScreen}
-    	\newline		
+    		
+    	
     \end{minipage}
      \begin{minipage}{.10\textwidth}
      	\includegraphics[width=2cm, height=2cm]{arrow1}
      \end{minipage}
     \begin{minipage}{.25\textwidth}	
+	
     	\color{Carnelian}\hspace{0.6cm}\textbf{SEGMENTED ASTROCYTES}
     	\newline
     	\newline
-    	\includegraphics[width=5cm, height=5cm]{astrocyteresult}	
-	
+    	\includegraphics[width=6cm, height=5cm]{astrocyteresult}
+    	\newline	
+    	\newline	
+    	\color{Carnelian}\hspace{0.1cm}\textbf{EVALUATION}
+    	\newline
+    	Recall (R) is defined as the number of true positives ($T_p$) over the number of true positives plus the number of false negatives ($F_n$).
+    	\begin{equation*}
+    	\label{eq:scale}
+    	{R} = \frac{T_p}{T_p + F_n}
+    	\end{equation*}		
     \end{minipage}
-
 	
 }
   \headerbox{Conclusions \& Outlook}{name=conclusion,column=2,span=1,below=baseline}{
   	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   	Presented Approach is 
   	\begin{itemize}
-  		\item \color{primary1}\textbf{Semi Supervised: } The results can be refined with iterations.
+  		\item \color{primary1}\textbf{Semi Supervised: }\color{black} The results can be refined with iterations.
   		\item \color{primary1}\textbf{Cell Type Independent: }\color{black} not only limited to specific type of cell.
   	\end{itemize} 
   \color{Carnelian}	Future efforts will include implementing the Structural SVM or Relational Learning for finding the suitable patterns in astrocytic arbors.
